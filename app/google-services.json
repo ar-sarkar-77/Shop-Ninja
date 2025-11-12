@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "814681940443",
+    "project_id": "shop-ninja-d9e8b",
+    "storage_bucket": "shop-ninja-d9e8b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814681940443:android:fff90f5e9e25acd08607fe",
+        "android_client_info": {
+          "package_name": "com.anondo.shopninja"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN-3E9i3U31pSCu7zhdJJsG2q5YVAL4AI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
