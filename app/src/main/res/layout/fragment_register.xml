@@ -39,6 +39,7 @@
         android:layout_marginLeft="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_16sdp"
         android:hint="Name"
+        android:layout_marginTop="@dimen/_4sdp"
         app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText

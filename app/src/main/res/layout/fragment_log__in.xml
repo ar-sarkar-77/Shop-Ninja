@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_4sdp"
         android:hint="Email"
         app:endIconMode="clear_text">
 
