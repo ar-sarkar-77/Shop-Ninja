@@ -14,7 +14,7 @@
         android:layout_height="@dimen/_200sdp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/start_e_commerce_app" />
+        app:lottie_rawRes="@raw/log_in2"/>
 
 
     <com.google.android.material.textview.MaterialTextView
@@ -32,7 +32,6 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_logIn"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,6 +42,7 @@
         app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_logIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -50,7 +50,6 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_logIn"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,6 +59,7 @@
         app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_logIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
