@@ -6,16 +6,32 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.anondo.shopninja.R
+import com.anondo.shopninja.databinding.FragmentDashBoardBinding
 
 class DashBoardFragment : Fragment() {
 
+    lateinit var binding : FragmentDashBoardBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dash_board, container, false)
+        binding = FragmentDashBoardBinding.inflate(inflater , container , false)
+        setListener()
+        return binding.root
+    }
+
+    private fun setListener() {
+
+        with(binding){
+
+            dashAnimationView.postDelayed({
+                dashAnimationView.visibility = View.GONE
+                dashBoardMain.visibility = View.VISIBLE
+            } , 4000)
+
+        }
+
     }
 
 }
