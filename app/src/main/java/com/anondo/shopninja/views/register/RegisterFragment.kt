@@ -1,42 +1,21 @@
 package com.anondo.shopninja.views.register
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.anondo.shopninja.R
+import com.anondo.shopninja.base.BaseFragment
 import com.anondo.shopninja.core.DataState
 import com.anondo.shopninja.data.models.UserRegistation
 import com.anondo.shopninja.databinding.FragmentRegisterBinding
 import com.anondo.shopninja.isEmptyfun
 
-class RegisterFragment : Fragment() {
-
-    lateinit var binding: FragmentRegisterBinding
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
     private val viewModel : RegisterViewModel by viewModels ()
     private var userType : String = ""
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        binding = FragmentRegisterBinding.inflate(inflater , container , false)
-
-        setRListener()
-
-        registationResponce()
-
-        return binding.root
-    }
-
-
-
-    private fun setRListener(){
+    override fun setListener(){
 
 
 
@@ -90,19 +69,22 @@ class RegisterFragment : Fragment() {
 
     }
 
-    private fun registationResponce() {
+    //OOAD -> Object Oriented Analytics Design (Code Design)
+    override fun observer() {
 
         viewModel.registation_Responce.observe(viewLifecycleOwner){
 
             when(it){
                 is DataState.Error -> {
+                    loading_progress_dialog.dismiss()
                     Toast.makeText(context , it.message.toString(), Toast.LENGTH_SHORT).show()
                 }
                 is DataState.Loading -> {
-                    Toast.makeText(context , "Loading", Toast.LENGTH_SHORT).show()
+                    loading_progress_dialog.show()
                 }
                 is DataState.Success -> {
-                    Toast.makeText(context , it.data.toString(), Toast.LENGTH_SHORT).show()
+                    loading_progress_dialog.dismiss()
+                    Toast.makeText(context , "Registation Success!!", Toast.LENGTH_SHORT).show()
 
                     findNavController().navigate(R.id.dashBoardFragment)
                 }
