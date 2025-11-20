@@ -7,9 +7,14 @@ import com.anondo.shopninja.core.DataState
 import com.anondo.shopninja.data.models.UserLogIn
 import com.anondo.shopninja.data.models.UserRegistation
 import com.anondo.shopninja.data.repository.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlin.math.log
 
-class LogInViewModel() : ViewModel() {
+@HiltViewModel
+class LogInViewModel @Inject constructor(
+    private val userAuth : AuthRepository
+): ViewModel() {
 
 
     private val logInResponce = MutableLiveData<DataState<UserLogIn>>()
@@ -17,9 +22,7 @@ class LogInViewModel() : ViewModel() {
     val logIn_Responce : LiveData<DataState<UserLogIn>> = logInResponce
 
     fun userLogIn(user : UserLogIn){
-
-        var userAuth = AuthRepository()
-
+        
         logInResponce.postValue(DataState.Loading())
 
 

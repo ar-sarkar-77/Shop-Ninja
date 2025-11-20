@@ -10,7 +10,9 @@ import com.anondo.shopninja.core.DataState
 import com.anondo.shopninja.data.models.UserRegistation
 import com.anondo.shopninja.databinding.FragmentRegisterBinding
 import com.anondo.shopninja.isEmptyfun
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
     private val viewModel : RegisterViewModel by viewModels ()
     private var userType : String = ""

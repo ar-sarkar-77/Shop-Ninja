@@ -6,16 +6,19 @@ import androidx.lifecycle.ViewModel
 import com.anondo.shopninja.core.DataState
 import com.anondo.shopninja.data.models.UserRegistation
 import com.anondo.shopninja.data.repository.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import jakarta.inject.Inject
 
-class RegisterViewModel : ViewModel() {
+@HiltViewModel
+class RegisterViewModel @Inject constructor(
+    private val userAuth : AuthRepository
+): ViewModel() {
 
     private val registationResponce = MutableLiveData<DataState<UserRegistation>>()
 
     val registation_Responce : LiveData<DataState<UserRegistation>> = registationResponce
 
     fun userRegistation(user : UserRegistation){
-
-        var userAuth = AuthRepository()
 
         registationResponce.postValue(DataState.Loading())
 

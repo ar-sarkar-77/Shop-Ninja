@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.anondo.shopninja.R
 import com.anondo.shopninja.databinding.FragmentDashBoardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashBoardFragment : Fragment() {
 
     lateinit var binding : FragmentDashBoardBinding

@@ -9,8 +9,9 @@ import com.anondo.shopninja.core.DataState
 import com.anondo.shopninja.data.models.UserLogIn
 import com.anondo.shopninja.databinding.FragmentLogInBinding
 import com.anondo.shopninja.isEmptyfun
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class Log_InFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::inflate) {
 
 
