@@ -11,6 +11,6 @@ interface AuthService {
 
     fun userLogin(user : UserLogIn) : Task<AuthResult>
 
-    fun createUser (user: UserRegistation)
+    fun createUser (user: UserRegistation) : Task<Void>
 
 }

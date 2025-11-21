@@ -3,6 +3,7 @@ package com.anondo.shopninja.dependencyinjection
 import com.anondo.shopninja.data.repository.AuthRepository
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,9 +24,18 @@ class FirebaseModule {
 
     @Provides
     @Singleton
-    fun providesFirebase(auth : FirebaseAuth) : AuthRepository {
+    fun providesFirebase(auth : FirebaseAuth , db : FirebaseFirestore) : AuthRepository {
 
-        return AuthRepository(auth)
+        return AuthRepository(auth , db)
 
     }
+
+    @Provides
+    @Singleton
+    fun providesFirebaseFirestoreDB() : FirebaseFirestore {
+
+        return FirebaseFirestore.getInstance()
+
+    }
+
 }

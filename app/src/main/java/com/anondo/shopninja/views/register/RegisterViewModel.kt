@@ -24,7 +24,16 @@ class RegisterViewModel @Inject constructor(
 
 
         userAuth.userRegistation(user).addOnSuccessListener {
-            registationResponce.postValue(DataState.Success(user))
+
+            it.user?.let{createdUser->
+                user.userId = createdUser.uid
+
+                userAuth.createUser(user).addOnSuccessListener {
+                    registationResponce.postValue(DataState.Success(user))
+                }.addOnFailureListener {
+                    registationResponce.postValue(DataState.Error(it.message.toString()))
+                }
+            }
         }.addOnFailureListener {
             registationResponce.postValue(DataState.Error(it.message.toString()))
 
