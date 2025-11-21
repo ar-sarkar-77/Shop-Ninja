@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.anondo.shopninja.R
 import com.anondo.shopninja.base.BaseFragment
 import com.anondo.shopninja.core.DataState
+import com.anondo.shopninja.core.Notes
 import com.anondo.shopninja.data.models.UserRegistation
 import com.anondo.shopninja.databinding.FragmentRegisterBinding
 import com.anondo.shopninja.isEmptyfun
@@ -60,7 +61,13 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
                 if (!nameRegister.isEmptyfun() && !emailRegister.isEmptyfun() && !passwordRegister.isEmptyfun() && !userType.isEmpty()){
 
-                    var user = UserRegistation("" , userType , nameRegister.text.toString() , emailRegister.text.toString() , passwordRegister.text.toString())
+                    var user = UserRegistation(
+                        userId = "",
+                        userType = userType,
+                        name = nameRegister.text.toString(),
+                        email = emailRegister.text.toString(),
+                        password = Notes.encryptData(passwordRegister.text.toString())
+                    )
 
                     viewModel.userRegistation(user)
 

@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import com.anondo.shopninja.R
 import com.anondo.shopninja.base.BaseFragment
 import com.anondo.shopninja.core.DataState
+import com.anondo.shopninja.core.Notes
 import com.anondo.shopninja.data.models.UserLogIn
 import com.anondo.shopninja.databinding.FragmentLogInBinding
 import com.anondo.shopninja.isEmptyfun
@@ -28,7 +29,10 @@ class Log_InFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::
 
                 if (!emailLogIn.isEmptyfun() && !passwordLogIn.isEmptyfun()) {
 
-                    var user = UserLogIn(emailLogIn.text.toString() , passwordLogIn.text.toString())
+                    var user = UserLogIn(
+                        email = emailLogIn.text.toString() ,
+                        password = Notes.encryptData(passwordLogIn.text.toString())
+                    )
 
                     viewModel.userLogIn(user)
 
