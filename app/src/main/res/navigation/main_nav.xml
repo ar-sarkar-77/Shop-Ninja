@@ -23,9 +23,6 @@
         android:label="fragment_log__in"
         tools:layout="@layout/fragment_log__in" >
         <action
-            android:id="@+id/action_log_InFragment_to_dashBoardFragment"
-            app:destination="@id/dashBoardFragment" />
-        <action
             android:id="@+id/action_log_InFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
     </fragment>
@@ -35,15 +32,7 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment_to_dashBoardFragment"
-            app:destination="@id/dashBoardFragment" />
-        <action
             android:id="@+id/action_registerFragment_to_log_InFragment"
             app:destination="@id/log_InFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/dashBoardFragment"
-        android:name="com.anondo.shopninja.views.dashboard.DashBoardFragment"
-        android:label="fragment_dash_board"
-        tools:layout="@layout/fragment_dash_board" />
 </navigation>

@@ -1,5 +1,6 @@
 package com.anondo.shopninja.views.register
 
+import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -11,6 +12,8 @@ import com.anondo.shopninja.core.Notes
 import com.anondo.shopninja.data.models.UserRegistation
 import com.anondo.shopninja.databinding.FragmentRegisterBinding
 import com.anondo.shopninja.isEmptyfun
+import com.anondo.shopninja.views.dashboard.customer.CustomerDashBoard
+import com.anondo.shopninja.views.dashboard.seller.SellerDashBoard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,8 +23,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     override fun setListener(){
 
-
-
         with(binding){
 
             ragisterToggleButton.addOnButtonCheckedListener { group , checkId , isChecked ->
@@ -29,8 +30,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                 if (isChecked){
                     toggleError.visibility = View.GONE
                     when(checkId){
-                        R.id.ragister_Buyer->{
-                            userType = "Buyer"
+                        R.id.ragister_Customer->{
+                            userType = "Customer"
                         }
                         R.id.ragister_Seller->{
                             userType = "Seller"
@@ -95,7 +96,13 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                     loading_progress_dialog.dismiss()
                     Toast.makeText(context , "Registation Success!!", Toast.LENGTH_SHORT).show()
 
-                    findNavController().navigate(R.id.dashBoardFragment)
+                    if (userType=="Seller"){
+                        startActivity(Intent(requireContext() , SellerDashBoard::class.java))
+                        requireActivity().finish()
+                    }else{
+                        startActivity(Intent(requireContext() , CustomerDashBoard::class.java))
+                        requireActivity().finish()
+                    }
                 }
             }
 

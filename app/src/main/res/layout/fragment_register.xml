@@ -103,11 +103,11 @@
         >
 
         <Button
-            android:id="@+id/ragister_Buyer"
+            android:id="@+id/ragister_Customer"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buyer" />
+            android:text="Customer" />
 
         <Button
             android:id="@+id/ragister_Seller"
