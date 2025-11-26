@@ -27,7 +27,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SellerDashBoard : AppCompatActivity() {
 
-
     @Inject
     lateinit var auth : FirebaseAuth
 

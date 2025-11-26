@@ -26,6 +26,7 @@ class AuthRepository @Inject constructor(
     }
 
     override fun createUser(user: UserRegistation) : Task<Void> {
+
         return db.collection(Notes.USER).document(user.userId).set(user)
     }
 

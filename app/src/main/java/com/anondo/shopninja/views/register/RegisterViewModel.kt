@@ -36,7 +36,6 @@ class RegisterViewModel @Inject constructor(
             }
         }.addOnFailureListener {
             registationResponce.postValue(DataState.Error(it.message.toString()))
-
         }
 
     }
